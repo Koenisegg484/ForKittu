@@ -7,13 +7,15 @@ html, body {
     width: 100%;
     height: 100%;
     margin: 0;
-    background: #270F34;
+    /* background: #270F34; */
     overflow: hidden;
-    /* display: flex; */
     align-items: center;
-    /* justify-content: center; */
-    /* contain: content; */
-    overflow: clip;
+}
+
+body{
+  /* background-image: url('resources/gray.jpg'); */
+  /* background-position: cover; */
+  /* background-size: cover; */
 }
 
 .envelope {
@@ -44,14 +46,19 @@ html, body {
 
   .main{
     display: flex;
-    padding: 10% 20%;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* background-color: rgb(61, 62, 62); */
+  }
+
+  body{
+    display: grid;
+    place-items: center;
   }
 
   .card{
-    width: 100%;
+    width: 700px;
+    min-height: 360px;
     display: flex;
     border: none;
     border-radius: 10px;
@@ -59,9 +66,17 @@ html, body {
     flex-direction: column;
     align-items: center;
     background-image: url("cardBG.jpg");
-    /* background-size: cover; */
     background-size: 100% 100%;
     background-position: center;
+
+    opacity: 0.9;
+  }
+
+  .animate-cardleft{
+    animation: cardAnimationleft 0.5s ease;
+  }
+  .animate-cardright{
+    animation: cardAnimationright 0.5s ease;
   }
 
   .card-img{
@@ -71,13 +86,14 @@ html, body {
   }
 
   .card-img img{
+    margin-top: 10px;
     width: 7rem;
     height: 7rem;
   }
   .card-text{
     padding: 20px 20px;
     text-align: center;
-    font-size: 40px;
+    font-size: 35px;
     /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
     /* font-family: "Lovers Quarrel", cursive;
     font-weight: 600;
@@ -96,15 +112,81 @@ html, body {
 
   .main .btn{
     margin-top: 20px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .btn button{
-    width: 100px;
-    height: 30px;
-    border: none;
-    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    justify-content: center;
     text-align: center;
     font-size: large;
     text-align: center;
     align-items: center;
+    padding: 10px 10px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .btn button:hover {
+    transform: scale(1.3);
+}
+
+.hidden {
+  transform: translate(-70%, -50%);
+  opacity: 0;
+}
+
+.jjk{
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, 30%);
+  opacity: 1;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+
+
+
+  @media screen  and (max-width:600px){
+    .card{
+      width: 350px;
+      min-height: 380px;
+    }
+    .card-text{
+      font-size: 25px;
+      line-height: 40px;
+    }
+  }
+
+  @keyframes cardAnimationright {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(3deg);
+    }
+    100% {
+        transform: scale(1) rotate(6deg);
+    }
+}
+
+  @keyframes cardAnimationleft {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(-3deg);
+    }
+    100% {
+        transform: scale(1) rotate(-6deg);
+    }
   }
