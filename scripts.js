@@ -58,6 +58,17 @@ function triggerCardAnimationright() {
             nextButton.style.display = "flex";
         }
 
+        if(index === 5){
+            card.style.backgroundImage = "url('/resources/her.png')";
+            cardText.style.color = 'white';
+            card.style.opacity = '1';
+            cardText.style.fontSize = '40px';
+        }else{
+            card.style.backgroundImage = "url('/cardBG.jpg')";
+            cardText.style.fontSize = '35px';
+            card.style.opacity = '0.9';
+            cardText.style.color = 'black';
+        }
         cardImg.src = imageSet[index];
         cardText.innerHTML = message[index];
     }
