@@ -59,7 +59,7 @@ function triggerCardAnimationright() {
         }
 
         if(index === 5){
-            card.style.backgroundImage = "url('/resources/her.png')";
+            card.style.backgroundImage = "url('/her.png')";
             cardText.style.color = 'white';
             card.style.opacity = '1';
             cardText.style.fontSize = '40px';
