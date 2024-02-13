@@ -27,32 +27,31 @@
     <audio autoplay loop>
         <source src="resources/ladyfingers.mp3" type="audio/mpeg">
     </audio>
-    <css-doodle><style>
+    <css-doodle>
+      <style>
         --color: #51eaea, #fffde1, #ff9d76, #FB3569;
-        @grid: 30x1 / 100vw 100vh / #270f34;
+        @grid: 5x1 / 100vw 100vh / #270f34;
         :container {
-          perspective: 30vmin;
           --deg: @p(-180deg, 180deg);
         }
         :after, :before {
           content: '';
           background: @p(--color);
           @place: @r(100%) @r(100%);
-          @size: @r(6px);
+          @size: @r(4px); /* Reduced size */
           @shape: heart;
         }
         @place: center;
-        @size: 18vmin;
-        box-shadow: @m2(0 0 50px @p(--color));
+        @size: 12vmin; /* Reduced size */
+        box-shadow: @m2(0 0 20px @p(--color)); /* Reduced box shadow */
         background: @m100(
           radial-gradient(@p(--color) 50%, transparent 0)
-          @r(-20%, 120%) @r(-20%, 100%) / 1px 1px
+          @r(-20%, 80%) @r(-20%, 100%) / 1px 1px
           no-repeat
         );
-
         will-change: transform, opacity;
-        animation: scale-up 100s linear infinite;
-        animation-delay: calc(-100s / @I * @i);
+        animation: scale-up 20s linear infinite; /* Reduced duration */
+        animation-delay: calc(-20s / @I * @i);
         @keyframes scale-up {
           0%, 95.01%, 100% {
             transform: translateZ(0) rotate(0);
@@ -63,10 +62,11 @@
           }
           95% {
             transform:
-              translateZ(35vmin) rotateZ(var(--deg));
+              translateZ(15vmin) rotateZ(var(--deg)); /* Reduced translation */
           }
         }
-      </style></css-doodle>
+      </style>
+    </css-doodle>
 
     <div class="main">
         <div class="card">
