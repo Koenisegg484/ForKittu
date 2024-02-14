@@ -8,7 +8,7 @@ html, body {
     height: 100%;
     margin: 0;
     /* background: #270F34; */
-    overflow: hidden;
+    /* overflow: hidden; */
     align-items: center;
 }
 
@@ -40,19 +40,28 @@ body{
     background-color: aliceblue;
     flex-direction: column;
     align-items: center;
-    background-image: url("cardBG.jpg");
+    transition: background-image 0.7s ease;
+    /* background-image: url('resources/cardBG.jpg');
     background-size: 100% 100%;
-    background-position: center;
+    background-position: center; */
 
     opacity: 0.9;
-    transition: opacity 0.5s;
+    transition: opacity 0.7s;
   }
 
+.background1 {
+    background-image: url('cardBG.jpg');
+}
+
+.background2 {
+    background-image: url('resources/her.png');
+}
+
   .animate-cardleft{
-    animation: cardAnimationleft 0.5s ease;
+    animation: cardAnimationleft 0.7s ease;
   }
   .animate-cardright{
-    animation: cardAnimationright 0.5s ease;
+    animation: cardAnimationright 0.7s ease;
   }
 
   .card-img{
@@ -84,8 +93,8 @@ body{
   }
 
   .btn button{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin: 10px;
     justify-content: center;
     text-align: center;
@@ -111,38 +120,79 @@ body{
   opacity: 0;
 }
 
-
-  @media screen  and (max-width:600px){
-    .card{
-      width: 350px;
-      min-height: 380px;
-    }
-    .card-text{
-      font-size: 25px;
-      line-height: 40px;
-    }
-  }
-
-  @keyframes cardAnimationright {
-    0% {
-        transform: scale(1) rotate(0deg);
-    }
-    50% {
-        transform: scale(1.1) rotate(3deg);
-    }
-    100% {
-        transform: scale(1) rotate(6deg);
-    }
+.animate-cardtextleft {
+  animation: cardTextAnimationleft 0.5s ease;
+}
+.animate-cardtextright {
+  animation: cardTextAnimationright 0.5s ease;
 }
 
-  @keyframes cardAnimationleft {
-    0% {
-        transform: scale(1) rotate(0deg);
-    }
-    50% {
-        transform: scale(1.1) rotate(-3deg);
-    }
-    100% {
-        transform: scale(1) rotate(-6deg);
-    }
+@keyframes cardTextAnimationleft {
+  from {
+      opacity: 0;
+      transform: translateX(-20px);
   }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes cardTextAnimationright {
+  from {
+      opacity: 0;
+      transform: translateX(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+
+@media screen  and (max-width:600px){
+  .card{
+    width: 350px;
+    min-height: 380px;
+  }
+  .card-text{
+    font-size: 25px;
+    line-height: 40px;
+  }
+}
+
+@keyframes cardAnimationright {
+  0% {
+      transform: scale(1) rotate(0deg);
+  }
+  25% {
+      transform: scale(1.1) rotate(3deg);
+  }
+  50% {
+      transform: scale(1.1) rotate(6deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(3deg);
+  }
+  100% {
+      transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes cardAnimationleft {
+  0% {
+    transform: scale(1) rotate(0deg);
+}
+25% {
+    transform: scale(1.1) rotate(-3deg);
+}
+50% {
+    transform: scale(1.1) rotate(-6deg);
+}
+75% {
+  transform: scale(1.1) rotate(-3deg);
+}
+100% {
+    transform: scale(1) rotate(0deg);
+}
+}

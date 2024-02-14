@@ -33,17 +33,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function triggerCardAnimationleft() {
     card.classList.add('animate-cardleft');
+    cardText.classList.add('animate-cardtextleft');
 
     setTimeout(() => {
         card.classList.remove('animate-cardleft');
-    }, 500);
+        cardText.classList.remove('animate-cardtextleft');
+    }, 700);
 }
 function triggerCardAnimationright() {
     card.classList.add('animate-cardright');
+    cardText.classList.add('animate-cardtextright');
 
     setTimeout(() => {
+        cardText.classList.remove('animate-cardtextright');
         card.classList.remove('animate-cardright');
-    }, 500);
+    }, 700);
 }
 
     function displayCard(index) {
@@ -59,15 +63,25 @@ function triggerCardAnimationright() {
         }
 
         if(index === 5){
-            card.style.backgroundImage = "url('/her.png')";
+            // card.style.backgroundImage = "url('resources/her.png')";
             cardText.style.color = 'white';
             card.style.opacity = '1';
             cardText.style.fontSize = '40px';
+            card.style.backgroundSize = "100% 100%";
+            card.style.backgroundPosition = "center";
+
+            card.classList.remove('background1');
+            card.classList.add('background2');
         }else{
-            card.style.backgroundImage = "url('/cardBG.jpg')";
             cardText.style.fontSize = '35px';
             card.style.opacity = '0.9';
             cardText.style.color = 'black';
+            // card.style.backgroundImage = "url('resources/cardBG.jpg')";
+            card.style.backgroundSize = "100% 100%";
+            card.style.backgroundPosition = "center";
+
+            card.classList.remove('background2');
+            card.classList.add('background1');
         }
         cardImg.src = imageSet[index];
         cardText.innerHTML = message[index];
